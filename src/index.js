@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import axios from "axios";
 
+import CoinSelect from "./components/CoinSelect";
 import Charts from "./components/Charts";
 import Navbar from "./components/Navbar";
 
@@ -9,6 +10,7 @@ import "./styles.scss";
 
 const App = () => {
   const [coinData, setCoinData] = useState([]);
+  const [selectedCoin, setSelectedCoin] = useState('bitcoin');
 
   useEffect(() => {
     axios
@@ -18,10 +20,12 @@ const App = () => {
       .then(res => setCoinData(res.data))
       .catch(err => console.log(err));
   }, []);
+
   return (
     <div className="App">
       <Navbar />
-      <Charts coinData={coinData} />
+      <CoinSelect coinData={coinData} setSelectedCoin={setSelectedCoin} />
+      <Charts coinData={coinData} selectedCoin={selectedCoin} />
     </div>
   );
 };
