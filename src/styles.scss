@@ -209,6 +209,18 @@ img {
   left: 18px;
 }
 
+.coin-select {
+  margin: 1%;
+
+  h2 {
+    margin-bottom: 1%;
+  }
+
+  select {
+    font-size: 1.3rem;
+  }
+}
+
 .charts {
   width: 80%;
   margin: 0 auto;
@@ -255,5 +267,10 @@ img {
   .navbar {
     background-color: #1F2022;
     border: none;
+  }
+
+  #coin-select {
+    color: #fff;
+    background-color: #313843;
   }
 }
